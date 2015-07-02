@@ -1,0 +1,70 @@
+
+<html>
+
+<head>
+
+   <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script-->
+   
+    <link rel="stylesheet" href="{{STATIC_URL}}bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="{{STATIC_URL}}bootswatch.min.css">
+    <!--link rel="stylesheet" href="http://bootswatch.com/bower_components/font-awesome/css/font-awesome.min.css" media="screen"-->
+   
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <!--script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script-->
+    <title>Shopify Search</title>
+   
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+        {% if current_shop %}
+         <a class="navbar-brand" chref="https://{{ current_shop.domain }}"><i class="fa fa-search fa-1x"> {{ current_shop.domain }} </i></a>
+        {% else %}
+        <a class="navbar-brand" href="#"> <i class="fa fa-search fa-1x"> ShopifySearch</i></a>
+        {% endif %} 
+        </div>
+        
+        <div class="navbar-collapse collapse" id="navbar-main">
+        {% if current_shop %}
+          <ul class="nav navbar-nav  navbar-right">
+            <li><a href="{% url "shopify_app.views.logout" %}"><i class="fa fa-sign-out"></i> <b>Logout</b></a></li>
+          </ul>
+          {% endif %}
+           
+        </div>
+      </div>
+    </div>
+
+
+
+       
+    <br/>
+   <div class="container" ng-controller="addtoplayer">
+   <div class="row">
+   
+   
+    {% block content %}
+    
+
+
+    {% endblock content %}
+
+    </div>
+
+
+   </div>
+
+ 
+    <!--script src="{{STATIC_URL}}darkly/jquery-1.10.2.min.js"></script-->
+<script src="{{STATIC_URL}}bootstrap.min.js"></script>
+ 
+</body>
+<!--footer>
+ <p>
+          Built with lots of <span style="color: #C0392B;">♥</span> and little bit of Python
+        </p>
+</footer>
+</div>
+</html>
