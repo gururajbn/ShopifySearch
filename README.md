@@ -21,4 +21,4 @@
     python manage.py runserver
     ```
 
-5.  Visit <http://localhost:8000> to view the example.
+5.  Visit <http://localhost:8000> 
