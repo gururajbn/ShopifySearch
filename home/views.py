@@ -2,14 +2,6 @@ from django.shortcuts import render
 from django.views.generic import View
 import shopify
 
-def ShopifySearch(product):
-    order_list=shopify.Order.find(created_at_min="2014-07-01 01:00")
-    customers_list=[]
-    for order in order_list:
-        if product in order.line_items:
-            customers_list.append(order.customer)
-
-    return customers_list
 
 
 class home(View):
