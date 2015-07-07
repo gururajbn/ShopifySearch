@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.views.generic import View
 import shopify
+import datetime
+today = datetime.datetime.now()
+diff= today -datetime.timedelta(days=365)
+yearago = diff.strftime("%Y-%m-%d")+" 00:00"
 
 
 
@@ -35,7 +39,7 @@ class Order(View):
 
     def get(self,request,pk):
         product= shopify.Product.find(pk)
-        order_list=shopify.Order.find(created_at_min="2014-07-01 01:00")
+        order_list=shopify.Order.find(created_at_min=yearago)
         customers_list=[]
         print product.id,product.title
         print order_list
@@ -50,3 +54,4 @@ class Order(View):
             'product':product,
             'customers':customers_list,
             })
+
